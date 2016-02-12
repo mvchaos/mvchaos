@@ -5,6 +5,6 @@ module.exports = {
 
   newEvent: function(req, res, next){
     console.log('req: ', req);
-    console.log('tried to add new event');
+    res.send('hi');
   }
 };

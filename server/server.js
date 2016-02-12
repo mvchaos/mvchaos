@@ -4,6 +4,11 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 4569;
+var path = require('path');// install
+var eventRouter = express.Router();
+
+// express.Router.  use this to route requests
+// use routes that i configured
 
 app.post('/api/events', function(req, res){
   console.log('simple form post');

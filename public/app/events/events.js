@@ -1,15 +1,16 @@
-// events.js
 angular.module('booletin.events',[])
-.controller('eventController', function($scope, Events){
+
+.controller('EventController', function ($scope, Events){
+  $scope.location = {};
   $scope.events = {};
   $scope.getEvents = function (){
-    Events.getAll()
+    Events.queryLocation($scope.events)
       .then(function (events){
-        $scope.data.events = events;
+        $scope.events = events;
       })
       .catch(function(error){
         console.error(error);
       });
   };
   $scope.getEvents();
-})
+});

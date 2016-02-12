@@ -1,11 +1,15 @@
-angular.module('booletin',['ui.router'])
+angular.module('booletin',[
+  'booletin.services',
+  'booletin.events',
+  'ui.router'])
 // 'booletin.services', 'booletin.events'
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/search');
   $stateProvider
     .state('search',{
       url: '/search',
-      templateUrl: "search.html"
+      templateUrl: "search.html",
+      controller: 'EventController'
     })
     .state('add', {
       url: '/add',

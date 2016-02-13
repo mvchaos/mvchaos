@@ -1,12 +1,13 @@
 <div id="search">
-  <h1>Search a zipcode</h1>
+  <h2>Search a zipcode</h2>
   <form name="zip Search" ng-submit="getEvents()">
-  <input type="text" ng-model="location.zipcode" placeholder="Add Event">
+  <input type="text" ng-model="queryZip.zipcode" placeholder="Add Event">
   <button type="submit">Search</button>
+   <a ui-sref='add'><button type="button">Add</button></a>
   </form>
 
-  <a ui-sref='add'>Add</a>
-  <a ui-sref='events'>Events</a>
+
+
 <!--
   <button>Search</button>
   <button>Add</button>

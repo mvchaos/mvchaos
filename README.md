@@ -11,7 +11,9 @@ npm install karma-cli -g
 
 npm install
 
-karma start
+grunt server
+
+grunt test
 ```
 
 

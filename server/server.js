@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use('/scripts', express.static(__dirname + '/../node_modules/'));
+
+
 app.listen(port);
 
 app.get('/api/events', function(req, res) {

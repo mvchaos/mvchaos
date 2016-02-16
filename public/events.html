@@ -1,4 +1,17 @@
 <div id="events">
   <h1>Filter</h1>
   <input type="text" placeholder='Search'>
+
+  <ul>
+    <li ng-repeat="event in events">
+      <p ng-model='event.zipCode'>{{event.zipCode}}</p>
+      <p ng-model='event.eventName'>{{event.eventName}}</p>
+      <p ng-model='event.streetAddress'>{{event.streetAddress}}</p>
+      <p ng-model='event.eventDescription'>{{event.eventDescription}}</p>
+      <p ng-model='event.startDate'>{{event.startDate}}</p>
+      <p ng-model='event.time'>{{event.time}}</p>
+      <img src='{{event.photo}}'/>
+      <p ng-model='event.tags'>{{event.tags}}</p>
+    </li>
+  </ul>
 </div>

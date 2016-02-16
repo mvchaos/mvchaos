@@ -2,9 +2,10 @@ angular.module('booletin.services', [])
 
 .factory('Events', function($http){
   var queryLocation = function(zip) {
+    console.log('made it into query');
     return $http({
       method: 'POST',
-      url: '/api/events',
+      url: '/api/location',
       data: zip
     });
   };
@@ -14,12 +15,16 @@ angular.module('booletin.services', [])
       method: 'POST',
       url: '/api/events',
       data: eventData
-    })
+    });
   };
 
+  var targetZips = [];
+  var lastLookup = "";
   return {
     queryLocation: queryLocation,
-    addEvent: addEvent
+    addEvent: addEvent,
+    lastLookup: lastLookup,
+    targetZips: targetZips
   };
 
 })

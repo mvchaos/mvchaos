@@ -5,7 +5,7 @@
    <form>
    <input type="text" ng-model="searchText" placeholder='Search'>
    </form>
-  </div>
+  </div> 
   <div ng-repeat="event in events | filter:searchText">
      <h3><p ng-model='event.eventName'>Event: {{event.eventName}}</p></h3>
      <p ng-model='event.zipCode'>Zipcode: {{event.zipCode}}</p>

@@ -3,7 +3,23 @@ angular.module('booletin.events',[])
 .controller('EventController', function ($scope, Events, $state, $firebaseArray){
   var dbConnection = new Firebase("https://booletin.firebaseio.com/events");
   $scope.events = $firebaseArray(dbConnection);
+
   Events.targetZipsString = "all";
+
+  var ref = new Firebase("https://booletin.firebaseio.com/events");
+  // ref.orderByChild('zipCode').equalTo('12345').once('value',function(snapshot){
+  //   console.log('snapshot is ', snapshot.val());
+  // });
+  ref.orderByChild('zipCode').equalTo('12345').on('value', function(snap){
+    console.log(snap.val());
+  }, function(errObj){
+    console.log("failed ", errObj.code);
+  });
+  // ref.orderByChild("zipCode").equalTo("12345").on("child_added", function(snapshot) {
+  //   console.log(snapshot.key());
+  // });
+  // ref.child('users').orderByChild('name').equalTo('Alex').on('child_added',  ...)
+
   $scope.targetZipsString = Events.targetZipsString;
   $scope.queryZip = {};
   $scope.validZip = false;

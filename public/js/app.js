@@ -3,7 +3,6 @@ angular.module('booletin',[
   'booletin.events',
   'ui.router',
   'firebase'])
-// 'booletin.services', 'booletin.events'
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/search');
   $stateProvider
@@ -24,7 +23,7 @@ angular.module('booletin',[
     })
 })
 
-.controller('addEvents',function ($scope, $firebaseArray, $firebaseObject, $state){
+.controller('addEvents',function($scope, $state, $firebaseArray, $firebaseObject){
   var dbConnection = new Firebase("https://booletin.firebaseio.com/events");
   $scope.events = $firebaseArray(dbConnection);
   $scope.newEvent = {

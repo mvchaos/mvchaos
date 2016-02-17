@@ -5,6 +5,7 @@ angular.module('booletin.events',[])
   $scope.events = $firebaseArray(dbConnection);
   $scope.targetZipsString = Events.targetZipsString;
   $scope.queryZip = {};
+  $scope.validZip = false;
   // $scope.events = {};
   $scope.getEvents = function (){
     Events.queryLocation($scope.queryZip)
@@ -20,7 +21,7 @@ angular.module('booletin.events',[])
         $state.go('events');
       })
       .catch(function(error){
-        console.error(error);
+        $scope.invalidZip = true;
       });
   };
   console.log("Saved Lookup", Events.lastLookup);

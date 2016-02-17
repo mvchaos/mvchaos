@@ -30,6 +30,9 @@ angular.module('booletin',[
   $scope.newEvent = {
     photo: ""
   };
+  var today = new Date();
+  $scope.today = today.toISOString();
+  console.log($scope.today);
   $scope.getImage = function(){
     var files = document.getElementById('fileInput').files;
     var file = files[0];

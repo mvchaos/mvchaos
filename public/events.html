@@ -7,6 +7,7 @@
    </form>
   </div>
   <div ng-repeat="event in events | filter:searchText">
+    <img class="center" src="assets/PushPin.png"/>
      <h3><p ng-model='event.eventName'>Event: {{event.eventName}}</p></h3>
      <p ng-model='event.zipCode'>Zipcode: {{event.zipCode}}</p>
      <p ng-model='event.streetAddress'>Address: {{event.streetAddress}}</p>

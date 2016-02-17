@@ -6,6 +6,7 @@ angular.module('booletin.events',[])
   $scope.targetZipsString = Events.targetZipsString;
   $scope.queryZip = {};
   $scope.validZip = false;
+  Events.targetZipsString = "all";
   // $scope.events = {};
   $scope.getEvents = function (){
     Events.queryLocation($scope.queryZip)

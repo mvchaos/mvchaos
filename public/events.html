@@ -6,15 +6,14 @@
    <input type="text" ng-model="searchText" placeholder='Search'>
    </form>
   </div>
-  <div class="paper floatLeft" ng-repeat="event in events | filter:searchText">
+  <div class="paper floatLeft" ng-repeat="event in events | filter:searchText | orderBy: 'startDate'">
     <img class="center" src="assets/PushPin.png"/>
-     <h3><p ng-model='event.eventName'>Event: {{event.eventName}}</p></h3>
-     <p ng-model='event.zipCode'>Zipcode: {{event.zipCode}}</p>
-     <p ng-model='event.streetAddress'>Address: {{event.streetAddress}}</p>
-     <p ng-model='event.eventDescription'>Description: {{event.eventDescription}}</p>
-     <p ng-model='event.startDate'>Date: {{event.startDate}}</p>
-     <p ng-model='event.time'>Time: {{event.time}}</p>
+     <h3><p ng-model='event.eventName'><h4>Event:</h4> {{event.eventName}}</p></h3>
+     <p ng-model='event.streetAddress'><strong>Address:</strong> {{event.streetAddress}}</p>
+     <p ng-model='event.eventDescription'><strong>Description:</strong> {{event.eventDescription}}</p>
+     <p ng-model='event.startDate'><strong>Date:</strong> {{event.startDate}}</p>
+     <p ng-model='event.time'><strong>Time:</strong> {{event.time}}</p>
      <img class='eventImage' ng-src='{{event.photo}}'/>
-     <p ng-model='event.tags'>Tags: {{event.tags}}</p>
+     <p ng-model='event.tags'><strong>Tags:</strong> {{event.tags}}</p>
    </div>
 </div>

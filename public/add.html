@@ -1,7 +1,7 @@
 <div id="add" class="paper">
     <div class="col-sm-8 col-sm-offset-1">
         <h1 class="text-center">Add Event</h1>
-        <form name="addEventForm" ng-app="booletin" ng-controller="addEvents" ng-submit="submitForm(addEventForm.$valid)" novalidate>
+        <form name="addEventForm" ng-submit="submitForm(addEventForm.$valid)" novalidate>
             <div class="form-group" ng-class="{'has-error': addEventForm.eventName.$invalid}">
                 <label>Zip Code</Label>
                 <input type="text" class="form-control" placeholder="e.g. 94117" name="zipCode" ng-model="newEvent.zipCode" required ng-minlength="5" ng-maxlength="5" />

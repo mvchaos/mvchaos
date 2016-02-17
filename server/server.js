@@ -29,10 +29,11 @@ var apiCall = function(data) {
         request(apiString + data.zipcode + '/1/mile/',
             function(error, response, body) {
                 if (error) {
-                    return console.log('Error:', error);
+                    return error;
                 }
                 if (response.statusCode !== 200) {
-                    return console.log('Invalid Status Code Returned:', response.statusCode);
+                    ;
+                    // return console.log('Invalid Status Code Returned:', response.statusCode);
                 }
                 var answer = JSON.parse(body);
                 resolve(answer);

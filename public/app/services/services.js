@@ -19,12 +19,14 @@ angular.module('booletin.services', [])
   };
 
   var targetZips = [];
+  var targetZipsString = "";
   var lastLookup = "";
   return {
     queryLocation: queryLocation,
     addEvent: addEvent,
     lastLookup: lastLookup,
-    targetZips: targetZips
+    targetZips: targetZips,
+    targetZipsString: targetZipsString
   };
 
 })

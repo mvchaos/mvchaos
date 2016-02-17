@@ -24,7 +24,7 @@ angular.module('booletin',[
     })
 })
 
-.controller('addEvents',function($scope, $firebaseArray, $firebaseObject){
+.controller('addEvents',function ($scope, $firebaseArray, $firebaseObject, $state){
   var dbConnection = new Firebase("https://booletin.firebaseio.com/events");
   $scope.events = $firebaseArray(dbConnection);
   $scope.newEvent = {
@@ -55,6 +55,7 @@ angular.module('booletin',[
       photo : $scope.newEvent.photo,
       tags : $scope.newEvent.tag
     });
+    $state.go('events');
   }
 })
 

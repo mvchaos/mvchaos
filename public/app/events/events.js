@@ -3,6 +3,7 @@ angular.module('booletin.events',[])
 .controller('EventController', function ($scope, Events, $state, $firebaseArray){
   var dbConnection = new Firebase("https://booletin.firebaseio.com/events");
   $scope.events = $firebaseArray(dbConnection);
+  Events.targetZipsString = "all";
   $scope.targetZipsString = Events.targetZipsString;
   $scope.queryZip = {};
   $scope.validZip = false;

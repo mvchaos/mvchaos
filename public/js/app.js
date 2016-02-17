@@ -42,18 +42,17 @@ angular.module('booletin',[
   };
 
   $scope.addEvent = function(){
-    console.log('add event input valid: ', isValid);
-      $scope.events.$add({
-        zipCode : $scope.newEvent.zipCode,
-        eventName : $scope.newEvent.eventName,
-        streetAddress : $scope.newEvent.streetAddress,
-        eventDescription : $scope.newEvent.eventDescription,
-        startDate : $scope.newEvent.startDate.toString(),
-        time : $scope.newEvent.time.toString(),
-        photo : $scope.newEvent.photo,
-        tags : $scope.newEvent.tag
-      });
-    }
+    $scope.events.$add({
+      zipCode : $scope.newEvent.zipCode,
+      eventName : $scope.newEvent.eventName,
+      streetAddress : $scope.newEvent.streetAddress,
+      eventDescription : $scope.newEvent.eventDescription,
+      startDate : $scope.newEvent.startDate.toString(),
+      time : $scope.newEvent.time.toString(),
+      photo : $scope.newEvent.photo,
+      tags : $scope.newEvent.tag
+    });
+  }
 })
 
 .directive('customOnChange', function() {

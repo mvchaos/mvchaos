@@ -1,17 +1,19 @@
 <div id="events">
-  <h1>Filter</h1>
-  <input type="text" placeholder='Search'>
-
-  <ul>
-    <li ng-repeat="event in events">
-      <p ng-model='event.zipCode'>{{event.zipCode}}</p>
-      <p ng-model='event.eventName'>{{event.eventName}}</p>
-      <p ng-model='event.streetAddress'>{{event.streetAddress}}</p>
-      <p ng-model='event.eventDescription'>{{event.eventDescription}}</p>
-      <p ng-model='event.startDate'>{{event.startDate}}</p>
-      <p ng-model='event.time'>{{event.time}}</p>
-      <img ng-src='{{event.photo}}'/>
-      <p ng-model='event.tags'>{{event.tags}}</p>
-    </li>
-  </ul>
+  <div>
+   <h1>Events</h1>
+   <span><i>Showing events for {{targetZipsString}}</i></span>
+   <form>
+   <input type="text" ng-model="searchText" placeholder='Search'>
+   </form>
+  </div> 
+  <div ng-repeat="event in events | filter:searchText">
+     <h3><p ng-model='event.eventName'>Event: {{event.eventName}}</p></h3>
+     <p ng-model='event.zipCode'>Zipcode: {{event.zipCode}}</p>
+     <p ng-model='event.streetAddress'>Address: {{event.streetAddress}}</p>
+     <p ng-model='event.eventDescription'>Description: {{event.eventDescription}}</p>
+     <p ng-model='event.startDate'>Date: {{event.startDate}}</p>
+     <p ng-model='event.time'>Time: {{event.time}}</p>
+     <img ng-src='{{event.photo}}'/>
+     <p ng-model='event.tags'>Tags: {{event.tags}}</p>
+   </div>
 </div>

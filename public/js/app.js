@@ -1,4 +1,5 @@
 angular.module('booletin',[
+  'ngMap',
   'booletin.services',
   'booletin.events',
   'booletin.add',
@@ -23,6 +24,22 @@ angular.module('booletin',[
       controller: 'EventController'
     })
 })
+.controller('mapController', function($scope, NgMap,$http) {
+  $scope.loc = {}
+
+  $http({
+    method: 'GET',
+    url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+encodeURIComponent($scope.event.streetAddress)+'&key=AIzaSyC7IPmYQhDK-tr4w9i9DLflO3ahjeuAbxc'
+  }).then(function successCallback(response) {
+    $scope.loc.x = response.data.results[0].geometry.location.lat || 1;
+    $scope.loc.y = response.data.results[0].geometry.location.lng || 1;
+  }, function errorCallback(response) {
+    console.log('not valid address',response);
+  })
+        NgMap.getMap().then(function(map) {
+            $scope.map = map;
+        });
+    })
 
 .directive('customOnChange', function() {
   return {

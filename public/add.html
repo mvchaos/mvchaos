@@ -5,11 +5,6 @@
             <div class="form-group" ng-class="{'has-error': addEventForm.eventName.$invalid}">
                 <label>Zip Code</Label>
                 <input type="text" class="form-control" placeholder="e.g. 94117" name="zipCode" ng-model="newEvent.zipCode" required ng-minlength="5" ng-maxlength="5" valid-zip/>
-
-                <!-- <input type="text" ng-model="name" name="name" username />{{name}}<br /> -->
-                <!-- <span ng-show="form.name.$pending.username">Checking if this name is available...</span> -->
-                <!-- <span ng-show="form.name.$error.username">This username is already taken!</span> -->
-
                 <br>
                 <span class="help-block" ng-show="addEventForm.zipCode.$error.required">Required</span>
                 <span class="help-block" ng-show="addEventForm.zipCode.$pending.validZip">Checking if zip code is valid...</span>

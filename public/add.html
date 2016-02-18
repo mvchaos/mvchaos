@@ -66,7 +66,7 @@
     <img class='preview' src='' /><br>
     <p><strong>Address:</strong> {{newEvent.streetAddress}}</p>
     <p ng-model='event.eventDescription'><strong>Description:</strong> {{newEvent.eventDescription}}</p>
-    <p ng-model='event.startDate'><strong>Date:</strong> {{niceDate}}</p>
-    <p ng-model='event.time'><strong>Time:</strong> {{niceTime}}</p>
+    <p ng-model='event.startDate'><strong>Date:</strong> {{newEvent.startDate.toString().slice(0, 15)}}</p>
+    <p ng-model='event.time'><strong>Time:</strong> {{newEvent.time.toString().slice(15, 21) + ' ' + newEvent.time.toString().slice(35, 38)}}</p>
     <p ng-model='event.tags'><strong>Tags:</strong> {{newEvent.tag}}</p>
 </div>

@@ -1,17 +1,19 @@
 angular.module('booletin.events',[])
 
-.controller('EventController', function($scope, Events, $state, $firebaseArray){
-  console.log('event controller activate');
+.controller('EventController', function($scope, Events, $state, $firebaseArray, $stateParams){
   var dbConnection = new Firebase("https://booletin.firebaseio.com/events");
-  // $scope.events = $firebaseArray(dbConnection);
+
+  if($stateParams.search === "no"){
+    $scope.events = $firebaseArray(dbConnection);
+  } else {
     $scope.events = Events.events;
-  // console.log($scope.events);
+  }
+
   Events.targetZipsString = "all";
 
   $scope.targetZipsString = Events.targetZipsString;
   $scope.queryZip = {};
   $scope.validZip = false;
-  // $scope.events = {};
   $scope.getEvents = function (){
     Events.queryLocation($scope.queryZip)
       .then(function (response){
@@ -29,17 +31,13 @@ angular.module('booletin.events',[])
         Events.events = [];
 
         for(var j = 0; j < Events.targetZips.length; j++){
-          // console.log(Events.targetZips[j])
           dbConnection.orderByChild('zipCode').equalTo(Events.targetZips[j]).on('value', function(snap){
-            // console.log(snap.val());
             var dbRes = snap.val();
             console.log("db res ",dbRes);
             if(dbRes !== null){
               for(var key in dbRes){
                 console.log('adding to events list');
-                // $scope.events.push(dbRes[key]);
                 Events.events.push(dbRes[key]);
-                // console.log('cur events ', $scope.events);
               }
             }
           }, function(errObj){

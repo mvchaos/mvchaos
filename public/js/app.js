@@ -18,7 +18,7 @@ angular.module('booletin',[
       controller: 'addEvents'
     })
     .state('events', {
-      url: '/events',
+      url: '/events/:search',
       templateUrl: 'events.html',
       controller: 'EventController'
     })

@@ -21,12 +21,14 @@ angular.module('booletin.services', [])
   var targetZips = [];
   var targetZipsString = "";
   var lastLookup = "";
+  var events = [];
   return {
     queryLocation: queryLocation,
     addEvent: addEvent,
     lastLookup: lastLookup,
     targetZips: targetZips,
-    targetZipsString: targetZipsString
+    targetZipsString: targetZipsString,
+    events : events
   };
 
 })

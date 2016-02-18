@@ -32,8 +32,7 @@ var apiCall = function(data) {
                 return error;
               }
               if (response.statusCode !== 200) {
-                ;
-                // return console.log('Invalid Status Code Returned:', response.statusCode);
+                return console.log('Invalid Status Code Returned:', response.statusCode);
               }
               var answer = JSON.parse(body);
               resolve(answer);

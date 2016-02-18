@@ -26,7 +26,7 @@ var apiString = 'http://www.zipcodeapi.com/rest/1QKL24IjZSW1tW6CXisZOprzLWyf4t56
 
 var apiCall = function(data) {
   return new Promise(function(resolve, reject) {
-    request(apiString + data.zipCode + '/1/mile/',
+    request(apiString + data.zipcode + '/1/mile/',
             function(error, response, body) {
               if (error) {
                 return error;

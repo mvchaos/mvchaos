@@ -41,7 +41,11 @@ angular.module('booletin',[
     link: function(scope, elm, attrs, ctrl) {
       ctrl.$asyncValidators.validZip = function(modelValue, viewValue) {
         var def = $q.defer();
-        Events.queryLocation(parseInt(viewValue))
+        var viewObject =  {
+           zipcode : viewValue
+        }
+
+        Events.queryLocation(viewObject)
         .then(function(response){
           if(response.data[0]['zip_codes']){
             def.resolve();

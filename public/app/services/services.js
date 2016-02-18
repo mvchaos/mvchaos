@@ -6,7 +6,10 @@ angular.module('booletin.services', [])
     return $http({
       method: 'POST',
       url: '/api/location',
-      data: zip
+      dataType: 'json',
+      data: {
+        zipCode: zip
+      }
     });
   };
 

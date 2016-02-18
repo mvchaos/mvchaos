@@ -25,23 +25,24 @@ app.get('/api/events', function(req, res) {
 var apiString = 'http://www.zipcodeapi.com/rest/1QKL24IjZSW1tW6CXisZOprzLWyf4t56kQRnUzGUrDWVA2yxl1w9qYJcUirYMx56/radius.json/'
 
 var apiCall = function(data) {
-    return new Promise(function(resolve, reject) {
-        request(apiString + data.zipcode + '/1/mile/',
+  return new Promise(function(resolve, reject) {
+    request(apiString + data.zipCode + '/1/mile/',
             function(error, response, body) {
-                if (error) {
-                    return error;
-                }
-                if (response.statusCode !== 200) {
-                    ;
-                    // return console.log('Invalid Status Code Returned:', response.statusCode);
-                }
-                var answer = JSON.parse(body);
-                resolve(answer);
+              if (error) {
+                return error;
+              }
+              if (response.statusCode !== 200) {
+                ;
+                // return console.log('Invalid Status Code Returned:', response.statusCode);
+              }
+              var answer = JSON.parse(body);
+              resolve(answer);
             });
-    });
+  });
 };
 
 app.post('/api/location', function(req, res) {
+  console.log('req body: ', req.body);
     var firstpromise = apiCall(req.body);
     Promise.all([firstpromise]).then(function(results) {
         res.send(results);

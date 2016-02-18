@@ -1,4 +1,4 @@
-<div id="add" class="paper">
+<div id="add" class="paper floatLeft" >
     <div class="col-sm-8 col-sm-offset-1">
         <h1 class="text-center">Add Event</h1>
         <form name="addEventForm" ng-submit="submitForm(addEventForm.$valid)" novalidate>
@@ -44,7 +44,7 @@
             <label>Select a file</label>
             <input type='file' id='fileInput' custom-on-change="getImage" ng-model="testImage" />
             <br>
-            <img id='preview' src='' />
+            <img class="preview" src='' />
             <br>
             <br>
             <div class="form-group" ng-class="{'has-error': addEventForm.tags.$invalid}">
@@ -57,4 +57,14 @@
     </div>
     <!--bootstrap div-->
 </div>
+</div>
+<div id="singleEvent" class="paper">
+    <img class="center" src="assets/PushPin.png" />
+    <h3>{{newEvent.eventName}}</h3>
+    <img class='preview' src='' /><br>
+    <p><strong>Address:</strong> {{newEvent.streetAddress}}</p>
+    <p ng-model='event.eventDescription'><strong>Description:</strong> {{newEvent.eventDescription}}</p>
+    <p ng-model='event.startDate'><strong>Date:</strong> {{niceDate}}</p>
+    <p ng-model='event.time'><strong>Time:</strong> {{niceTime}}</p>
+    <p ng-model='event.tags'><strong>Tags:</strong> {{newEvent.tag}}</p>
 </div>

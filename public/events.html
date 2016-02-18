@@ -14,6 +14,11 @@
      <p ng-model='event.startDate'><strong>Date:</strong> {{event.startDate}}</p>
      <p ng-model='event.time'><strong>Time:</strong> {{event.time}}</p>
      <img class='eventImage' ng-src='{{event.photo}}'/>
+     <div ng-controller="mapController">
+        <ng-map default-style="true" zoom="15" center="{{loc.x}}, {{loc.y}}">
+          <marker position="{{loc.x}}, {{loc.y}}"></marker>
+        </ng-map>
+     </div>
      <p ng-model='event.tags'><strong>Tags:</strong> {{event.tags}}</p>
    </div>
 </div>

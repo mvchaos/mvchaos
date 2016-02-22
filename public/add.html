@@ -1,75 +1,72 @@
-<div id="add" class="paper floatLeft" >
-    <div class="col-sm-8 col-sm-offset-1">
-        <h1 class="text-center">Add Event</h1>
-        <form name="addEventForm" ng-submit="submitForm(addEventForm.$valid)" novalidate>
-            <div class="form-group" ng-class="{'has-error': addEventForm.eventName.$invalid}">
-                <label>Zip Code</Label>
-                <input type="text" class="form-control" placeholder="e.g. 94117" name="zipCode" ng-model="newEvent.zipCode" required ng-minlength="5" ng-maxlength="5" valid-zip/>
-                <br>
-                <span class="help-block" ng-show="addEventForm.zipCode.$error.required">Required</span>
-                <span class="help-block" ng-show="addEventForm.zipCode.$pending.validZip">Checking if zip code is valid...</span>
-                <span class="help-block" ng-show="addEventForm.zipCode.$error.validZip">Not a valid zip code</span>
-                <span class="help-block" ng-show="addEventForm.zipCode.$error.minlength">Zip code must be 5 digits</span>
-                <span class="help-block" ng-show="addEventForm.zipCode.$error.maxlength">Zip code must be 5 digits</span>
-            </div>
-            <div class="form-group" ng-class="{'has-error': addEventForm.eventName.$invalid}">
-                <label>Event Name</label>
-                <input type="text" class="form-control" name="eventName" placeholder="e.g. Food Truck Friday" required ng-model="newEvent.eventName">
-                <br>
-                <span class="help-block" ng-show="addEventForm.eventName.$error.required">Required</span>
-            </div>
-            <div class="form-group" ng-class="{'has-error': addEventForm.address.$invalid}">
-            <label>Street Address</label>
-            <input type="text" class="form-control" ng-model="newEvent.streetAddress"  placeholder="e.g. 123 Main Street, Apt 1A" uib-typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
-            <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-            <div ng-show="noResults">
-              <i class="glyphicon glyphicon-remove"></i> No Results Found
-            </div>
-            </div>
-
-            <div class="form-group" ng-class="{'has-error': addEventForm.description.$invalid}">
-                <label>Event Description</label>
-                <textarea type="text" class="form-control" name="description" placeholder="Description" require ng-model="newEvent.eventDescription"></textarea>
-                <br>
-                <span class="help-block" ng-show="addEventForm.description.$error.required">Required</span>
-            </div>
-            <div class="form-group" ng-class="{'has-error': addEventForm.date.$invalid}">
-                <label>Start Date</label>
-                <input type="date" class="form-control" name="date" min="2016-02-22" placeholder="Date" require ng-model="newEvent.startDate">
-                <br>
-                <span class="help-block" ng-show="addEventForm.date.$error.required">Required</span>
-            </div>
-            <div class="form-group" ng-class="{'has-error': addEventForm.time.$invalid}">
-                <label>Time</label>
-                <input type="time" class="form-control" name="time" placeholder="Time" require ng-model="newEvent.time">
-                <br>
-                <span class="help-block" ng-show="addEventForm.time.$error.required">Required</span>
-            </div>
-            <br>
-            <label>Select a file</label>
-            <input type='file' id='fileInput' custom-on-change="getImage" ng-model="testImage" />
-            <br>
-            <img class="preview" src='' />
-            <br>
-            <br>
-            <div class="form-group" ng-class="{'has-error': addEventForm.tags.$invalid}">
-                <label>Tags</label>
-                <input type="text" class="form-control" name="tags" placeholder="Tags" ng-model="newEvent.tag">
-                <br>
-            </div>
-            <button type="submit" class="btn btn-primary" ng-click="addEvent()" ng-disabled="addEventForm.$invalid">Submit</button>
-        </form>
-    </div>
-    <!--bootstrap div-->
-</div>
+<div id="add" class="paper floatLeft">
+  <div class="col-sm-8 col-sm-offset-1">
+    <h1 class="text-center">Add Event</h1>
+    <form name="addEventForm" ng-submit="submitForm(addEventForm.$valid)" novalidate>
+      <div class="form-group" ng-class="{'has-error': addEventForm.eventName.$invalid}">
+        <label>Zip Code</Label>
+        <input type="text" class="form-control" placeholder="e.g. 94117" name="zipCode" ng-model="newEvent.zipCode" required ng-minlength="5" ng-maxlength="5" valid-zip/>
+        <br>
+        <span class="help-block" ng-show="addEventForm.zipCode.$error.required">Required</span>
+        <span class="help-block" ng-show="addEventForm.zipCode.$pending.validZip">Checking if zip code is valid...</span>
+        <span class="help-block" ng-show="addEventForm.zipCode.$error.validZip">Not a valid zip code</span>
+        <span class="help-block" ng-show="addEventForm.zipCode.$error.minlength">Zip code must be 5 digits</span>
+        <span class="help-block" ng-show="addEventForm.zipCode.$error.maxlength">Zip code must be 5 digits</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': addEventForm.eventName.$invalid}">
+        <label>Event Name</label>
+        <input type="text" class="form-control" name="eventName" placeholder="e.g. Food Truck Friday" required ng-model="newEvent.eventName">
+        <br>
+        <span class="help-block" ng-show="addEventForm.eventName.$error.required">Required</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': addEventForm.address.$invalid}">
+        <label>Street Address</label>
+        <input type="text" class="form-control" name="address" placeholder="e.g. 123 Main Street, Apt 1A" required ng-model="newEvent.streetAddress">
+        <br>
+        <span class="help-block" ng-show="addEventForm.address.$error.required">Required</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': addEventForm.description.$invalid}">
+        <label>Event Description</label>
+        <textarea type="text" class="form-control" name="description" placeholder="Description" require ng-model="newEvent.eventDescription"></textarea>
+        <br>
+        <span class="help-block" ng-show="addEventForm.description.$error.required">Required</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': addEventForm.date.$invalid}">
+        <label>Start Date</label>
+        <input type="date" class="form-control" name="date" min="2016-02-22" placeholder="Date" require ng-model="newEvent.startDate">
+        <br>
+        <span class="help-block" ng-show="addEventForm.date.$error.required">Required</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': addEventForm.time.$invalid}">
+        <label>Time</label>
+        <input type="time" class="form-control" name="time" placeholder="Time" require ng-model="newEvent.time">
+        <br>
+        <span class="help-block" ng-show="addEventForm.time.$error.required">Required</span>
+      </div>
+      <br>
+      <label>Select a file</label>
+      <input type='file' id='fileInput' custom-on-change="getImage" ng-model="testImage" />
+      <br>
+      <img class="preview" src='' />
+      <br>
+      <br>
+      <div class="form-group" ng-class="{'has-error': addEventForm.tags.$invalid}">
+        <label>Tags</label>
+        <input type="text" class="form-control" name="tags" placeholder="Tags" ng-model="newEvent.tag">
+        <br>
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="addEvent()" ng-disabled="addEventForm.$invalid">Submit</button>
+    </form>
+  </div>
+  <!--bootstrap div-->
 </div>
 <div id="singleEvent" class="paper">
-    <img class="center" src="assets/PushPin.png" />
-    <h3>{{newEvent.eventName}}</h3>
-    <img class='preview' src='' /><br>
-    <p><strong>Address:</strong> {{newEvent.streetAddress}}</p>
-    <p ng-model='event.eventDescription'><strong>Description:</strong> {{newEvent.eventDescription}}</p>
-    <p ng-model='event.startDate'><strong>Date:</strong> {{newEvent.startDate.toString().slice(0, 15)}}</p>
-    <p ng-model='event.time'><strong>Time:</strong> {{newEvent.time.toString().slice(15, 21) + ' ' + newEvent.time.toString().slice(35, 38)}}</p>
-    <p ng-model='event.tags'><strong>Tags:</strong> {{newEvent.tag}}</p>
+  <img class="center" src="assets/PushPin.png" />
+  <h3>{{newEvent.eventName}}</h3>
+  <img class='preview' src='' />
+  <br>
+  <p><strong>Address:</strong> {{newEvent.streetAddress}}</p>
+  <p ng-model='event.eventDescription'><strong>Description:</strong> {{newEvent.eventDescription}}</p>
+  <p ng-model='event.startDate'><strong>Date:</strong> {{newEvent.startDate.toString().slice(0, 15)}}</p>
+  <p ng-model='event.time'><strong>Time:</strong> {{newEvent.time.toString().slice(15, 21) + ' ' + newEvent.time.toString().slice(35, 38)}}</p>
+  <p ng-model='event.tags'><strong>Tags:</strong> {{newEvent.tag}}</p>
 </div>

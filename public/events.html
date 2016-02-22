@@ -12,12 +12,11 @@
       <img class="center" src="assets/PushPin.png"/>
       <h3><p ng-model='event.eventName'><h4>Event:</h4> {{event.eventName}}</p></h3>
       <p ng-model='event.streetAddress'><strong>Address:</strong>{{event.streetAddress}}<br><a ng-click="isCollapsedMap = !isCollapsedMap">hide map</a></p>
-
-          <div   uib-collapse="isCollapsedMap">
-            <ng-map default-style="true" zoom="16" center="{{loc.x}}, {{loc.y}}">
-              <marker position="{{loc.x}}, {{loc.y}}"></marker>
-            </ng-map>
-          </div>
+      <div   uib-collapse="isCollapsedMap">
+        <ng-map default-style="true" zoom="16" center="{{loc.x}}, {{loc.y}}">
+          <marker position="{{loc.x}}, {{loc.y}}"></marker>
+        </ng-map>
+      </div>
       <p ng-model='event.eventDescription'><strong>Description:</strong> {{event.eventDescription}}</p>
       <p ng-model='event.startDate'><strong>Date:</strong> {{event.startDate}}</p>
       <p ng-model='event.time'><strong>Time:</strong> {{event.time}}</p>

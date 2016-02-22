@@ -22,19 +22,17 @@ app.get('/api/events', function(req, res) {
     res.send('simple form');
 });
 
-var apiString = 'http://www.zipcodeapi.com/rest/1QKL24IjZSW1tW6CXisZOprzLWyf4t56kQRnUzGUrDWVA2yxl1w9qYJcUirYMx56/radius.json/'
+var apiString = 'http://www.zipcodeapi.com/rest/13VmpoOcKPi4T3uLb7JDa2Kji98W6Yr71nurLiDw8WA2Z5NbcwOnzzGRIOOOMgWO/radius.json/'
 
 var apiCall = function(data) {
   return new Promise(function(resolve, reject) {
     request(apiString + data.zipcode + '/1/mile/',
             function(error, response, body) {
               if (error) {
-                return error;
-              }
-              if (response.statusCode !== 200) {
-                return console.log('Invalid Status Code Returned:', response.statusCode);
+                console.log("error: ", error);
               }
               var answer = JSON.parse(body);
+              console.log(answer);
               resolve(answer);
             });
   });

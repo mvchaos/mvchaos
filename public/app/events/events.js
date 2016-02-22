@@ -17,6 +17,7 @@ angular.module('booletin.events',[])
   $scope.getEvents = function (){
     Events.queryLocation($scope.queryZip)
       .then(function (response){
+        $scope.invalidZip = false;
         Events.targetZips = [];
         Events.targetZipsString = "";
         Events.lastLookup = $scope.queryZip.zipcode;
@@ -28,6 +29,7 @@ angular.module('booletin.events',[])
       })
       .then(function(){
         //query db for all zip codes
+        $scope.loading = true;
         Events.events = [];
 
         for(var j = 0; j < Events.targetZips.length; j++){

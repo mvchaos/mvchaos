@@ -1,9 +1,14 @@
 <div id="search" class="paper">
-  <h2>Search a zipcode</h2>
-  <form name="zip Search" ng-submit="getEvents()">
-  <input type="text" ng-model="queryZip.zipcode" placeholder="e.g. 10024">
-  <button type="submit">Search</button>
-   <a ui-sref='add'><button type="button">Add</button></a>
-  </form>
-  <p ng-show="invalidZip" style="color: red">Please enter a valid 5-digit zip</p>
+    <h2>Search a zipcode</h2>
+    <form name="zip Search" ng-submit="getEvents()">
+        <input id="searchbar" type="text" ng-model="queryZip.zipcode" placeholder="e.g. 10024">
+        </br>
+        <div id="homeButtons">
+          <button type="submit">Search Events</button>
+        <a ui-sref='add'>
+            <button type="button">Add New Event</button>
+        </a>
+        </div>
+    </form>
+    <p ng-show="invalidZip" style="color: red">Please enter a valid 5-digit zip</p>
 </div>

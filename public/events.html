@@ -6,7 +6,7 @@
    <input type="text" ng-model="searchText" placeholder='Search'>
    </form>
   </div>
-  <div class="paper floatLeft" ng-repeat="event in events | filter:searchText | orderBy: 'startDate'">
+  <div class="paper floatLeft event" ng-repeat="event in events | filter:searchText | orderBy: 'startDate'">
     <img class="center" src="assets/PushPin.png"/>
      <h3><p ng-model='event.eventName'><h4>Event:</h4> {{event.eventName}}</p></h3>
      <p ng-model='event.streetAddress'><strong>Address:</strong> {{event.streetAddress}}</p>

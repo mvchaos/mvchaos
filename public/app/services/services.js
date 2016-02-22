@@ -1,6 +1,6 @@
 angular.module('booletin.services', [])
 
-.factory('Events', function($http){
+.factory('Events', function($http) {
   var queryLocation = function(zip) {
     console.log('made it into query');
     return $http({
@@ -28,7 +28,7 @@ angular.module('booletin.services', [])
     lastLookup: lastLookup,
     targetZips: targetZips,
     targetZipsString: targetZipsString,
-    events : events
+    events: events
   };
 
 })

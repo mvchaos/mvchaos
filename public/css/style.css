@@ -56,7 +56,9 @@ body {
 #add {
   width: 40%;
 }
-
+.preview {
+  max-width: 75%;
+}
 .paper {
   background-color : white;
   padding : 15px;

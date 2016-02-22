@@ -1,4 +1,5 @@
 angular.module('booletin',[
+  'ui.bootstrap',
   'ngMap',
   'booletin.services',
   'booletin.events',
@@ -26,6 +27,7 @@ angular.module('booletin',[
 })
 .controller('mapController', function($scope, NgMap,$http) {
   $scope.loc = {}
+  $scope.isCollapsedMap = false;
 
   $http({
     method: 'GET',

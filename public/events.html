@@ -13,7 +13,7 @@
       <h3><p ng-model='event.eventName'><h4>Event:</h4> {{event.eventName}}</p></h3>
       <p ng-model='event.streetAddress'><strong>Address:</strong>{{event.streetAddress}}<br><a ng-click="isCollapsedMap = !isCollapsedMap">hide map</a></p>
       <div   uib-collapse="isCollapsedMap">
-        <ng-map default-style="true" zoom="16" scrollwheel="false" center="{{loc.x}}, {{loc.y}}">
+        <ng-map default-style="true" zoom="16" center="{{loc.x}}, {{loc.y}}">
           <marker position="{{loc.x}}, {{loc.y}}"></marker>
         </ng-map>
       </div>

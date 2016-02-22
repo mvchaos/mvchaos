@@ -8,8 +8,10 @@ angular.module('booletin.events', [])
   } else {
     $scope.events = Events.events;
   }
-
-  Events.targetZipsString = "all";
+  $scope.targetZipsString = Events.targetZipsString;
+  if ($scope.targetZipsString === "") {
+    Events.targetZipsString = "all";
+  }
   $scope.targetZipsString = Events.targetZipsString;
   $scope.queryZip = {};
 

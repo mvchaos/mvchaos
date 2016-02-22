@@ -5,6 +5,7 @@ angular.module('booletin.events', [])
 
   if ($stateParams.search === "no") {
     $scope.events = $firebaseArray(dbConnection);
+    Events.targetZipsString = "all";
   } else {
     $scope.events = Events.events;
   }

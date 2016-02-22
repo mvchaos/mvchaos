@@ -32,7 +32,7 @@
             </div>
             <div class="form-group" ng-class="{'has-error': addEventForm.date.$invalid}">
                 <label>Start Date</label>
-                <input type="date" class="form-control" name="date" placeholder="Date" require ng-model="newEvent.startDate">
+                <input type="date" class="form-control" name="date" min="2016-02-22" placeholder="Date" require ng-model="newEvent.startDate">
                 <br>
                 <span class="help-block" ng-show="addEventForm.date.$error.required">Required</span>
             </div>

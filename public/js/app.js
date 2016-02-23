@@ -1,4 +1,5 @@
 angular.module('booletin', [
+    'ui.bootstrap',
     'ngMap',
     'booletin.services',
     'booletin.events',

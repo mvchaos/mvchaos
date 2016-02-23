@@ -56,6 +56,14 @@ body {
 #add {
   width: 40%;
 }
+.preview {
+  max-width: 100%;
+}
+
+#singleEvent .preview {
+  max-width: 25%;
+  float: right;
+}
 
 .paper {
   background-color : white;

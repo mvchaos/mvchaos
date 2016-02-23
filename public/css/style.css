@@ -13,6 +13,7 @@ body {
 
 .event {
   min-width : 300px;
+  max-width : 30%;
 }
 
 .navbar {

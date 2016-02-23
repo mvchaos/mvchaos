@@ -32,14 +32,14 @@ var apiCall = function(data) {
           return console.log("error: ", error);
         }
         var answer = JSON.parse(body);
-        console.log(answer);
+
         resolve(answer);
       });
   });
 };
 
 app.post('/api/location', function(req, res) {
-  console.log('req body: ', req.body);
+
   var firstpromise = apiCall(req.body);
   Promise.all([firstpromise]).then(function(results) {
     res.send(results);

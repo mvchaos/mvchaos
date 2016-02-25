@@ -1,7 +1,7 @@
 angular.module('booletin.events', [])
 
 .controller('EventController', function($scope, Events, $state, $firebaseArray, $stateParams) {
-  var dbConnection = new Firebase("https://booletin.firebaseio.com/events");
+  var dbConnection = new Firebase("https://glowing-torch-8522.firebaseio.com");//https://booletin.firebaseio.com/events
 
   if ($stateParams.search === "no") {
     $scope.events = $firebaseArray(dbConnection);

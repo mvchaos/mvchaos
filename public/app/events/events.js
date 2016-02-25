@@ -38,15 +38,15 @@ angular.module('booletin.events', [])
         for (var j = 0; j < Events.targetZips.length; j++) {
           dbConnection.orderByChild('zipCode').equalTo(Events.targetZips[j]).on('value', function(snap) {
             var dbRes = snap.val();
-            console.log("db res ", dbRes);
+
             if (dbRes !== null) {
               for (var key in dbRes) {
-                console.log('adding to events list');
+
                 Events.events.push(dbRes[key]);
               }
             }
           }, function(errObj) {
-            console.log("failed ", errObj.code);
+
           });
         }
 
@@ -54,7 +54,7 @@ angular.module('booletin.events', [])
       .then(function() {
         // navigate to events view
         setTimeout(function() {
-          console.log('cur events ', Events.events);
+
           $state.go('events');
         }, 2000);
       })
@@ -62,7 +62,5 @@ angular.module('booletin.events', [])
         $scope.invalidZip = true;
       });
   };
-  console.log("Saved Lookup", Events.lastLookup);
-  console.log("Target Zips", Events.targetZips);
-  console.log("Target Zips List", Events.targetZipsString);
+
 });

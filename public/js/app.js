@@ -31,7 +31,7 @@ angular.module('booletin', [
 
     $http({
       method: 'GET',
-      url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent($scope.event.streetAddress) + '&key=AIzaSyC7IPmYQhDK-tr4w9i9DLflO3ahjeuAbxc'
+      url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent($scope.event.streetAddress) + '&key=AIzaSyCOVekX2vxVgtxhjjv2_j88VRDMGPeQWVQ'
     }).then(function successCallback(response) {
       $scope.loc.x = response.data.results[0].geometry.location.lat || 1;
       $scope.loc.y = response.data.results[0].geometry.location.lng || 1;

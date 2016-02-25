@@ -22,7 +22,7 @@ app.get('/api/events', function(req, res) {
   res.send('simple form');
 });
 
-var apiString = 'http://www.zipcodeapi.com/rest/v3S00BxySOULTLpIOUYCM6uaDaaEmxbRB4SBGpaye4k7PKQEFOhsULCyWNciloaW/radius.json/'
+var apiString = 'http://www.zipcodeapi.com/rest/BvCbcQg0j7pKL2fbadmunohNbXAS8BZJ6BUjrbjLiJv3LLeWYBrmZI9bFK3Ol2xs/radius.json/'
 
 var apiCall = function(data) {
   return new Promise(function(resolve, reject) {

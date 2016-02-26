@@ -15,11 +15,6 @@
        xfbml      : true,
        version    : 'v2.5'
      });
-     FB.ui({
-       method: 'share',
-       href: 'https://developers.facebook.com/docs/'
-     }, function(response){});
-
    };
 
    (function(d, s, id){
@@ -29,6 +24,7 @@
       js.src = "//connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
  </script>
  
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -50,8 +46,10 @@
 
   <!-- // <script src="/scripts/angular/angular.js"></script> -->
   
+  
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+  <script src="http://pc035860.github.io/angular-easyfb/angular-easyfb.min.js"></script>
   <script src="/scripts/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
   <script src="app/services/services.js"></script>

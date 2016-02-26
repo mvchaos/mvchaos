@@ -59,4 +59,7 @@ angular.module('booletin.add',[])
       });
     });
   };
+  $scope.initFB = function (){
+    window.fbAsyncInit();  
+  };
 });

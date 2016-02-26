@@ -1,5 +1,4 @@
-<div id="events">
-
+<div id="events" ng-init = 'initFB()'>
     <div class="paper floatLeft">
        <h1>Events</h1>
        <span><i>Showing {{events.length}} events for {{targetZipsString}}</i></span>
@@ -27,14 +26,15 @@
       <p ng-model='event.time'><strong>Time:</strong> {{event.time}}</p>
       <img class='eventImage' ng-src='{{event.photo}}'/>
       <p ng-model='event.tags'><strong>Tags:</strong> {{event.tags}}</p>
-
-   </div>
-   <div
+    <div 
      class="fb-like"
+     data-href="http://mybooletin.herokuapp.com/#/events/no"
+     data-href="http://localhost:4569/#/events/no"
      data-share="true"
      data-width="450"
      data-show-faces="true">
    </div>
-
+   </div>
 </div>
+
 

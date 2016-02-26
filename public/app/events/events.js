@@ -36,6 +36,7 @@ angular.module('booletin.events', [])
 
   $scope.validZip = false;
   $scope.getEvents = function() {
+    //console.log(window.fbAsyncInit)
     Events.queryLocation($scope.queryZip)
       .then(function(response) {
         $scope.invalidZip = false;
@@ -45,8 +46,6 @@ angular.module('booletin.events', [])
         for (var i = 0; i < response.data[0].zip_codes.length; i++) {
           Events.targetZips.push(response.data[0].zip_codes[i].zip_code);
           Events.targetZipsString += (response.data[0].zip_codes[i].zip_code + ", ");
-          console.log('-------------')
-        console.log(zip_codes)
         }
         Events.targetZipsString = Events.targetZipsString.slice(0, Events.targetZipsString.length - 2);
       })
@@ -82,5 +81,8 @@ angular.module('booletin.events', [])
         $scope.invalidZip = true;
       });
   };
-
+  $scope.initFB = function (){
+    window.fbAsyncInit();  
+  };
+  
 });

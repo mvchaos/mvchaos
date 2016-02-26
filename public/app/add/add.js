@@ -46,7 +46,7 @@ angular.module('booletin.add',[])
         var wholeAddressArr = response.data.results[0].address_components;
         for(var i = 0 ; i < wholeAddressArr.length ; i++){
           if(wholeAddressArr[i].types[0] === 'postal_code'){
-            $scope.newEvent.zipCode = wholeAddressArr[i].long_name;
+            // $scope.newEvent.zipCode = wholeAddressArr[i].long_name;
           }
         }
       return response.data.results.map(function(item){

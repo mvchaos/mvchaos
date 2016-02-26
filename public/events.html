@@ -10,7 +10,7 @@
        </form>
     </div>
 
-    <div  ng-controller="mapController"class="paper floatLeft event" ng-repeat="event in events | filter:searchText | orderBy: 'startDate'">
+    <div  ng-controller="mapController"class="paper floatLeft event" ng-repeat="event in events | filter: newEventsOnly | filter:searchText | orderBy: 'startDate'">
 
       <img class="center" src="assets/PushPin.png"/>
       <h3><p ng-model='event.eventName'><h4>Event:</h4> {{event.eventName}}</p></h3>

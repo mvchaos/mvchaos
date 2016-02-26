@@ -18,7 +18,7 @@ angular.module('booletin.add',[])
         list[i].setAttribute('src', reader.result);
       }
       $scope.newEvent.photo = reader.result;
-    }
+    };
     reader.readAsDataURL(file);
   };
 
@@ -34,7 +34,7 @@ angular.module('booletin.add',[])
       tags : $scope.newEvent.tag
     });
     $state.go('events', {search:"no"});
-  }
+  };
 
   $scope.getLocation = function(val) {
     return $http.get('//maps.googleapis.com/maps/api/geocode/json', {

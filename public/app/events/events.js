@@ -9,6 +9,11 @@ angular.module('booletin.events', [])
   } else {
     $scope.events = Events.events;
   }
+  //filter function to only display events that have not passed
+  $scope.newEventsOnly = function(event) {
+    var today = new Date();
+    return new Date(event.startDate) > today;
+  };
   $scope.targetZipsString = Events.targetZipsString;
   if ($scope.targetZipsString === "") {
     Events.targetZipsString = "all";

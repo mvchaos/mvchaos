@@ -23,6 +23,8 @@ app.get('/api/events', function(req, res) {
   res.send('simple form');
 });
 
+//alternate key:
+//v3S00BxySOULTLpIOUYCM6uaDaaEmxbRB4SBGpaye4k7PKQEFOhsULCyWNciloaW
 var apiString = 'http://www.zipcodeapi.com/rest/BvCbcQg0j7pKL2fbadmunohNbXAS8BZJ6BUjrbjLiJv3LLeWYBrmZI9bFK3Ol2xs/radius.json/'
 
 var apiCall = function(data) {

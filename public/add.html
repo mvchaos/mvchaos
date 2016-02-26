@@ -1,4 +1,24 @@
-<div id="add" class="paper floatLeft" >
+   <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1036179246446029',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
+
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+  </script>
+ 
+<div id="add" class="paper floatLeft"  ng-init = 'initFB()'>
     <div class="col-sm-8 col-sm-offset-1" ng-click = "change()">
         <h1 class="text-center" >Add Event</h1>
         <form name="addEventForm" ng-submit="submitForm(addEventForm.$valid)" novalidate >
@@ -65,10 +85,12 @@
     <p ng-model='event.tags'><strong>Tags:</strong> {{newEvent.tag}}</p>
     <div
       class="fb-like"
+      data-href= = "hhttp://mybooletin.herokuapp.com/#/add"
+      data-href= = "http://localhost:4569/#/add"
       data-share="true"
       data-width="450"
       data-show-faces="true">
     </div>
-</div>
 
+</div>
 

@@ -5,7 +5,8 @@ angular.module('booletin', [
     'booletin.events',
     'booletin.add',
     'ui.router',
-    'firebase'
+    'firebase',
+    
   ])
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/search');

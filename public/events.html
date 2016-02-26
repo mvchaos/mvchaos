@@ -1,5 +1,3 @@
-   
-
 <div id="events">
 
     <div class="paper floatLeft">
@@ -7,11 +5,14 @@
        <span><i>Showing {{events.length}} events for {{targetZipsString}}</i></span>
        <form>
        <input type="text" ng-model="searchText" placeholder='Search'>
+    <div class="pastEvents">
+      <p class="eventOccurrenceFilter" ng-click="showEvents('past')">Show past events</h6>
+      <p class="eventOccurrenceFilter" ng-click="showEvents('future')">Show future events</h6>
+    </div>
        </form>
     </div>
 
-    <div  ng-controller="mapController"class="paper floatLeft event" ng-repeat="event in events | filter:searchText | orderBy: 'startDate'">
-
+    <div  ng-controller="mapController"class="paper floatLeft event" ng-repeat="event in events | filter: dateSort | filter:searchText | orderBy: 'startDate'">
       <img class="center" src="assets/PushPin.png"/>
       <h3><p ng-model='event.eventName'><h4>Event:</h4> {{event.eventName}}</p></h3>
 
@@ -26,7 +27,7 @@
       <p ng-model='event.time'><strong>Time:</strong> {{event.time}}</p>
       <img class='eventImage' ng-src='{{event.photo}}'/>
       <p ng-model='event.tags'><strong>Tags:</strong> {{event.tags}}</p>
-      
+
    </div>
    <div
      class="fb-like"

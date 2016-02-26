@@ -31,4 +31,4 @@ angular.module('booletin.services', [])
     events: events
   };
 
-})
+});

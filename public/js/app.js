@@ -24,10 +24,10 @@ angular.module('booletin', [
         url: '/events/:search',
         templateUrl: 'events.html',
         controller: 'EventController'
-      })
+      });
   })
   .controller('mapController', function($scope, NgMap, $http) {
-    $scope.loc = {}
+    $scope.loc = {};
 
     $http({
       method: 'GET',

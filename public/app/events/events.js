@@ -9,6 +9,24 @@ angular.module('booletin.events', [])
   } else {
     $scope.events = Events.events;
   }
+  //filter function to only display events that haven't happened
+  $scope.newEventsOnly = function(event) {
+    var today = new Date();
+    return new Date(event.startDate) > today;
+  };
+  //determines whether future or past events are shown
+  $scope.dateSort = $scope.newEventsOnly;
+  //displays events that have already passed
+  $scope.showEvents = function(timing) {
+    if (timing === 'past') {
+      $scope.dateSort = function(event) {
+        return new Date(event.startDate) < new Date();
+      };
+    } else {
+      $scope.dateSort = $scope.newEventsOnly;
+    }
+  };
+
   $scope.targetZipsString = Events.targetZipsString;
   if ($scope.targetZipsString === "") {
     Events.targetZipsString = "all";

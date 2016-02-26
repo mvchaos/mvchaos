@@ -6,6 +6,11 @@ angular.module('booletin.add',[])
   $scope.newEvent = {
     photo: ""
   };
+  $scope.change = function(){
+    console.log('change',$scope.newEvent.streetAddress );
+    $scope.getLocation($scope.newEvent.streetAddress);
+  };
+  $scope.zip = '';
   var today = new Date();
   $scope.today = today.toISOString();
   $scope.getImage = function(){
@@ -43,11 +48,15 @@ angular.module('booletin.add',[])
         sensor: false
       }
     }).then(function(response){
-        $scope.newEvent.zipCode = response.data.results[0].address_components[7].long_name;
+        var wholeAddressArr = response.data.results[0].address_components;
+        for(var i = 0 ; i < wholeAddressArr.length ; i++){
+          if(wholeAddressArr[i].types[0] === 'postal_code'){
+            $scope.newEvent.zipCode = wholeAddressArr[i].long_name;
+          }
+        }
       return response.data.results.map(function(item){
         return item.formatted_address;
       });
     });
   };
-
 });

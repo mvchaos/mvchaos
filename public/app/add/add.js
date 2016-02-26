@@ -1,11 +1,16 @@
 angular.module('booletin.add',[])
 
 .controller('addEvents',function ($scope, $firebaseArray, $firebaseObject, $state, $http){
-  var dbConnection = new Firebase("https://booletin.firebaseio.com/events");
+  var dbConnection = new Firebase("https://glowing-torch-8522.firebaseio.com"); //https://booletin.firebaseio.com/events
   $scope.events = $firebaseArray(dbConnection);
   $scope.newEvent = {
     photo: ""
   };
+  $scope.change = function(){
+    console.log('change',$scope.newEvent.streetAddress );
+    $scope.getLocation($scope.newEvent.streetAddress);
+  };
+  $scope.zip = '';
   var today = new Date();
   $scope.today = today.toISOString();
   $scope.getImage = function(){
@@ -18,7 +23,7 @@ angular.module('booletin.add',[])
         list[i].setAttribute('src', reader.result);
       }
       $scope.newEvent.photo = reader.result;
-    }
+    };
     reader.readAsDataURL(file);
   };
 
@@ -34,7 +39,7 @@ angular.module('booletin.add',[])
       tags : $scope.newEvent.tag
     });
     $state.go('events', {search:"no"});
-  }
+  };
 
   $scope.getLocation = function(val) {
     return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
@@ -43,11 +48,18 @@ angular.module('booletin.add',[])
         sensor: false
       }
     }).then(function(response){
-        $scope.newEvent.zipCode = response.data.results[0].address_components[7].long_name;
+        var wholeAddressArr = response.data.results[0].address_components;
+        for(var i = 0 ; i < wholeAddressArr.length ; i++){
+          if(wholeAddressArr[i].types[0] === 'postal_code'){
+            $scope.newEvent.zipCode = wholeAddressArr[i].long_name;
+          }
+        }
       return response.data.results.map(function(item){
         return item.formatted_address;
       });
     });
   };
-
+  $scope.initFB = function (){
+    window.fbAsyncInit();  
+  };
 });

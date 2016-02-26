@@ -1,16 +1,20 @@
-<div id="events">
-
+<div id="events" ng-init = 'initFB()'>
     <div class="paper floatLeft">
        <h1>Events</h1>
        <span><i>Showing {{events.length}} events for {{targetZipsString}}</i></span>
        <form>
        <input type="text" ng-model="searchText" placeholder='Search'>
+    <div class="pastEvents">
+      <p class="eventOccurrenceFilter" ng-click="showEvents('past')">Show past events</h6>
+      <p class="eventOccurrenceFilter" ng-click="showEvents('future')">Show future events</h6>
+    </div>
        </form>
     </div>
 
-    <div  ng-controller="mapController"class="paper floatLeft event" ng-repeat="event in events | filter:searchText | orderBy: 'startDate'">
+    <div  ng-controller="mapController"class="paper floatLeft event" ng-repeat="event in events | filter: dateSort | filter:searchText | orderBy: 'startDate'">
       <img class="center" src="assets/PushPin.png"/>
       <h3><p ng-model='event.eventName'><h4>Event:</h4> {{event.eventName}}</p></h3>
+
       <p ng-model='event.streetAddress'><strong>Address:</strong> {{event.streetAddress}}<br><a ng-click="isCollapsedMap = !isCollapsedMap">hide map</a></p>
       <div   uib-collapse="isCollapsedMap">
         <ng-map default-style="true" zoom="16" scrollwheel="false" center="{{loc.x}}, {{loc.y}}">
@@ -22,6 +26,15 @@
       <p ng-model='event.time'><strong>Time:</strong> {{event.time}}</p>
       <img class='eventImage' ng-src='{{event.photo}}'/>
       <p ng-model='event.tags'><strong>Tags:</strong> {{event.tags}}</p>
+    <div 
+     class="fb-like"
+     data-href="http://mybooletin.herokuapp.com/#/events/no"
+     data-href="http://localhost:4569/#/events/no"
+     data-share="true"
+     data-width="450"
+     data-show-faces="true">
    </div>
-
+   </div>
 </div>
+
+

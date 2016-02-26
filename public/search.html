@@ -1,4 +1,24 @@
-<div id="search" class="paper">
+ <div id="fb-root"></div>
+ <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1036179246446029',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+</script>
+<div id="search" class="paper" ng-init = 'initFB()'>
   <h2>Search a Zip Code</h2>
   <form name="zipSearch" ng-submit="getEvents()">
     <input id="searchbar" type="text" ng-model="queryZip.zipcode" placeholder="e.g. 10024">
@@ -7,8 +27,19 @@
     <div id="homeButtons">
       <button type="submit">Search Events</button>
       <a ui-sref='add'>
-        <button type="button">Add New Event</button>
+      <button type="button">Add New Event</button>
+      
       </a>
     </div>
+    <br>
+    <br>
+      <div
+        class="fb-like"
+        data-href="http://mybooletin.herokuapp.com/#/search"
+        data-href="http://localhost:4569/#/search"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+      </div>
   </form>
 </div>
